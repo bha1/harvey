@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/ui-darkness/jquery-ui.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="css/site.css"/>
+   <!-- <link rel="stylesheet" href="css/site.css"/> -->
 
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -17,6 +17,21 @@
     <![endif]-->
 </head>
 <body>
-	<p th:text="${information1}"></p>
+	<p>The text supplied:</p>
+	<p th:text="${wordCount.sourceString}"></p>
+	<form action="#"  th:action="@{/wordcount}" th:object="${text}" method="post">
+		<input type="text" id="sourceString" name="sourceString" value=""/>
+		<button type="submit" id="doUpdate" name="doUpdateButton" >Update now!</button>
+	</form>
+	<table>
+	<tr>
+	<th>Key</th>
+	<th>Value</th>
+	</tr>
+	<tr th:each="wordMap:${wordCount.wordMap}">
+	<td th:text="${wordMap.key}">empty</td>
+	<td th:text="${wordMap.value}">empty</td>
+	</tr>
+	</table>
 </body>
 </html>
