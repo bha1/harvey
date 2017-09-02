@@ -6,8 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.optimus.harvey.business.domain.WordCount;
 import com.optimus.harvey.business.service.WordCountService;
+import com.optimus.harvey.business.domain.*;
 
 @Controller
 @RequestMapping("/wordcount")
